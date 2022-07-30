@@ -1,25 +1,21 @@
-package ru.kata.spring.boot_security.demo.controllers;
+package ru.kata.spring.boot_security.demo.controller;
 
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
-import ru.kata.spring.boot_security.demo.models.User;
-import ru.kata.spring.boot_security.demo.services.UserService;
-
-import java.security.Security;
-
+import ru.kata.spring.boot_security.demo.model.User;
+import ru.kata.spring.boot_security.demo.service.UserService;
+import ru.kata.spring.boot_security.demo.service.UserServiceImpl;
 
 @Controller
-@RequestMapping()
+@RequestMapping
 public class UserController {
     private final UserService userService;
+
     public UserController(UserService userService) {
         this.userService = userService;
     }
-    private final BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(12);
 
     @GetMapping("/")
     public String toLogin() {
@@ -46,7 +42,6 @@ public class UserController {
 
     @PatchMapping("/edit/{id}")
     public String updateUser(@ModelAttribute("user") User user) {
-        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         userService.updateUser(user);
         return "redirect:/admin";
     }
@@ -59,7 +54,6 @@ public class UserController {
 
     @PostMapping("/admin/create")
     public String createUser(@ModelAttribute("emptyUser") User user) {
-        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         userService.addUser(user);
         return "redirect:/admin";
     }

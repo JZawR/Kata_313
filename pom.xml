@@ -5,14 +5,14 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.6.3</version>
+		<version>2.4.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>KataGroup</groupId>
-	<artifactId>Kata_312</artifactId>
+	<artifactId>Kata_313</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Kata_312</name>
-	<description>Kata_312</description>
+	<name>Kata_313</name>
+	<description>Kata_313</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
