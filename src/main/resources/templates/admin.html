@@ -139,7 +139,7 @@
                                                                             <div class="form-group">
                                                                                 <label th:for="roles"><b>Role</b></label>
                                                                                 <select multiple class="form-control" th:value="*{roles}" name="roles" size="2" required>
-                                                                                    <option th:each="r : ${userRoles}" th:value="${r.id}" th:text="${r.role}"></option>
+                                                                                    <option th:each="r : ${userRoles}" th:value="${r.role}" th:text="${r.role}"></option>
                                                                                 </select>
                                                                             </div>
                                                                         </div>
